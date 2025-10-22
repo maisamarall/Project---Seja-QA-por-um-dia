@@ -5,9 +5,31 @@ O desafio é explorar a API DummyJSON (https://dummyjson.com/docs) e verificar o
 
 ### Falhas encontradas nos testes de POST e PUT:
 
-- A API não valida tipos nos campos. Um exemplo seria na hora de enviar `"price": "cem"` e ainda assim obter `200 OK`, o que é um comportamento incorreto. O esperado seria erro 400 com mensagem.
+- (POST /products/add API) aceita campo inválido sem retornar erro
 
-- No PUT `/products/:id`, a API retorna um objeto do produto atualizado, mas não valida se os campos enviados são válidos. Campos inválidos como `"marca": "Fake"` são ignorados silenciosamente, sem feedback.
+Passos:
+
+Enviar uma requisição POST para https://dummyjson.com/products/add.
+
+No corpo da requisição, incluir:
+
+{
+  "title": "Perfume",
+  "price": "cem"
+}
+
+Executar o request.
+
+Resultado esperado:
+A API deve retornar status 400 e mensagem informando que o campo price deve ser numérico.
+
+Resultado obtido:
+A API retorna status 201 (OK) e aceita o valor incorreto "price": "cem" sem validar o tipo.
+
+Evidência:
+Teste Cypress falhou no caso “Dado que envio dado inválido, Quando faço um POST, Então deve retornar erro”.
+
+<img width="1068" height="672" alt="image" src="https://github.com/user-attachments/assets/1827bf11-1199-4560-b4fb-fa27ba8c13ab" />
 
 ---
 
