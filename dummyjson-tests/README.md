@@ -1,4 +1,4 @@
-# Project---Seja-QA-por-um-dia
+<img width="1058" height="743" alt="image" src="https://github.com/user-attachments/assets/436d841f-a1c2-4b3b-8cbf-2f4c16554d88" /># Project---Seja-QA-por-um-dia
 O desafio é explorar a API DummyJSON (https://dummyjson.com/docs) e verificar o comportamento de todos os endpoints, documentar possíveis falhas e criar testes automatizados em Cypress.
 
 ---
@@ -7,8 +7,7 @@ O desafio é explorar a API DummyJSON (https://dummyjson.com/docs) e verificar o
 
 - (POST /products/add API) aceita campo inválido sem retornar erro
 
--Passos:
-
+- Passos:
 Enviar uma requisição POST para https://dummyjson.com/products/add.
 
 No corpo da requisição, incluir:
@@ -18,18 +17,43 @@ No corpo da requisição, incluir:
   "price": "cem"
 }
 
--Executar o request.
+- Executar o request.
 
--Resultado esperado:
+- Resultado esperado:
 A API deve retornar status 400 e mensagem informando que o campo price deve ser numérico.
 
--Resultado obtido:
+- Resultado obtido:
 A API retorna status 201 (OK) e aceita o valor incorreto "price": "cem" sem validar o tipo.
 
--Evidência:
+- Evidência:
 Teste Cypress falhou no caso “Dado que envio dado inválido, Quando faço um POST, Então deve retornar erro”.
 
 <img width="1068" height="672" alt="image" src="https://github.com/user-attachments/assets/1827bf11-1199-4560-b4fb-fa27ba8c13ab" />
+
+---
+
+PUT /products/:id) – API ignora campos inválidos
+- Passos:
+Enviar uma requisição PUT para https://dummyjson.com/products/1
+
+No corpo da requisição, incluir:
+
+{
+  "title": "perfume",
+  "price": 150,
+  "marca": "Fake"
+}
+
+- Executar o request.
+
+- Resultado esperado:
+A API deve retornar erro informando que o campo marca não é válido, ou rejeitar toda a atualização.
+
+- Resultado obtido:
+A API retorna status 200 (OK) e ignora o campo inválido "marca", sem retornar mensagem de alerta ou erro.
+
+- Evidência:
+<img width="1068" height="672" alt="image" src="https://github.com/user-attachments/assets/7d1aced8-4f0f-4d1d-8229-aa8bd1f498d0" />
 
 ---
 
