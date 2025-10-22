@@ -10,8 +10,7 @@ describe("Funcionalidades: Produtos API DummyJSON", () => {
 
   // Limit products
   it("Dado que quero verificar limit=5, Quando faço a requisição com parâmetro limit=5, Então deve retornar exatamente 5 produtos.", () => {
-    cy.request("GET", "https://dummyjson.com/products?limit=5").then(
-      (response) => {
+    cy.request("GET", "https://dummyjson.com/products?limit=5").then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body.products).to.have.length(5);
       }
