@@ -1,4 +1,4 @@
-<img width="1058" height="743" alt="image" src="https://github.com/user-attachments/assets/436d841f-a1c2-4b3b-8cbf-2f4c16554d88" /># Project---Seja-QA-por-um-dia
+# Project---Seja-QA-por-um-dia
 O desafio é explorar a API DummyJSON (https://dummyjson.com/docs) e verificar o comportamento de todos os endpoints, documentar possíveis falhas e criar testes automatizados em Cypress.
 
 ---
