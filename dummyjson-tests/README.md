@@ -55,6 +55,10 @@ A API retorna status 200 (OK) e ignora o campo inválido "marca", sem retornar m
 
 ---
 
+### Nossa conclusão
+
+- A nossa conclusão a respeito da API Dummy JSON seria dizer que ela é muito útil para a realização de testes, porém *não é confiável* para produção, pois faltam algumas validações básicas, tratamento de erro de maneira adequada, não tem muita consistência com relação aos seus retornos, entre outros pontos que podem ser descritos como possíveis defeitos da API.
+
 ### Discentes
 
 | Nome do Discente | RA        |
